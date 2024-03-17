@@ -6,6 +6,161 @@ local _G = _G
 _G["KRT"] = addon
 
 
+-- MinimalEffor GP Values
+local GPValues = {
+	["Frostweave Bag"] = 9999,
+    ["Snowserpent Mail Helm"] = 0,
+    ["Bone Sentinel's Amulet"] = 100,
+    ["Rusted Bonespike Pauldrons"] = 0,
+    ["Bracers of Dark Reckoning"] = 100,
+    ["Gendarme's Cuirass"] = 0,
+    ["Handguards of Winter's Respite"] = 0,
+    ["Crushing Coldwraith Belt"] = 200,
+    ["Legguards of Lost Hope"] = 100,
+    ["Frostbitten Fur Boots"] = 200,
+    ["Band of the Bone Colossus"] = 100,
+    ["Loop of the Endless Labyrinth"] = 200,
+    ["Marrowgar's Frigid Eye"] = 100,
+    ["Frozen Bonespike"] = 200,
+    ["Bulwark of Smouldering Steel"] = 200,
+    ["Bryntroll, the Bone Arbiter"] = 100,
+    ["Broken Ram Skull Helm"] = 200,
+    ["Ahn'kahar Onyx Neckguard"] = 100,
+    ["Cultist's Bloodsoaked Spaulders"] = 0,
+    ["Shoulders of Mercy Killing"] = 0,
+    ["Deathwhisper Raiment"] = 0,
+    ["The Lady's Brittle Bracers"] = 200,
+    ["Fallen Lord's Handguards"] = 200,
+    ["Leggings of Northern Lights"] = 200,
+    ["Blood-Soaked Saronite Stompers"] = 200,
+    ["Necrophotic Greaves"] = 0,
+    ["Juggernaut Band"] = 100,
+    ["Ring of Maddening Whispers"] = 100,
+    ["Heartpierce Icon Heartpierce"] = 0,
+    ["Nibelung"] = 0,
+    ["Zod's Repeating Longbow"] = 0,
+    ["Corp'rethar Ceremonial Crown"] = 0,
+    ["Amulet of the Silent Eulogy"] = 200,
+    ["Boneguard Commander's Pauldrons"] = 0,
+    ["Shadowvault Slayer's Cloak"] = 200,
+    ["Ikfirus's Sack of Wonder"] = 100,
+    ["Polar Bear Claw Bracers"] = 200,
+    ["Gunship Captain's Mittens"] = 100,
+    ["Waistband of Righteous Fury"] = 0,
+    ["Boots of Unnatural Growth"] = 0,
+    ["Ring of Rapid Ascent"] = 200,
+    ["Skeleton Lord's Circle"] = 100,
+    ["Althor's Abacus"] = 200,
+    ["Corpse Tongue Coin"] = 0,
+    ["Scourgeborne Waraxe"] = 100,
+    ["Greatcloak of the Turned Champion"] = 100,
+    ["Toskk's Maximized Wristguards"] = 200,
+    ["Belt of the Blood Nova"] = 0,
+    ["Deathbringer's Will"] = 400,
+    ["Bloodvenom Blade"] = 200,
+    ["Faceplate of the Forgotten"] = 0,
+    ["Holiday's Grace"] = 0,
+    ["Horrific Flesh Epaulets"] = 0,
+    ["Carapace of Forgotten Kings"] = 0,
+    ["Fleshrending Gauntlets"] = 100,
+    ["Unclean Surgical Gloves"] = 0,
+    ["Belt of Broken Bones"] = 100,
+    ["Lingering Illness"] = 0,
+    ["Gangrenous Leggings"] = 0,
+    ["Leather of Stitched Scourge"] = 0,
+    ["Plaguebringer's Stained"] = 200,
+    ["Plague Scientist's Boots"] = 200,
+    ["Might of Blight"] = 100,
+    ["Black Bruise"] = 0,
+    ["Distant Land"] = 0,
+    ["Nerub'ar Stalker's Cord"] = 200,
+    ["Helm of the Elder Moon"] = 0,
+    ["Bile-Encrusted Medallion"] = 100,
+    ["Dual-Bladed Pauldrons"] = 0,
+    ["Raging Behemoth's Shoulderplates"] = 0,
+    ["Winding Sheet"] = 100,
+    ["Blightborne Warplate"] = 0,
+    ["Rot-Resistant Breastplate"] = 0,
+    ["Bloodsunder's Bracers"] = 0,
+    ["Death Surgeon's Sleeves"] = 100,
+    ["Aldriana's Gloves of Secrecy"] = 200,
+    ["Seal of Many Mouths"] = 100,
+    ["Dislodged Foreign Object"] = 200,
+    ["Trauma"] = 100,
+    ["Rib Spreader"] = 0,
+    ["Corpse-Impaling Spike"] = 200,
+    ["Astrylian's Sutured Cinch"] = 200,
+    ["Professor's Bloodied Smock"] = 100,
+    ["Tiny Abomination in a Jar"] = 200,
+    ["Rigormortis"] = 0,
+    ["Last Word"] = 0,
+    ["Geistlord's Punishment Sack"] = 0,
+    ["Landsoul's Horned Greathelm"] = 0,
+    ["Shoulders of Frost-Tipped Thorns"] = 0,
+    ["Crypt Keeper's Bracers"] = 0,
+    ["San'layn Ritualist Gloves"] = 0,
+    ["Taldaram's Plated Fists"] = 0,
+    ["Treads of the Wasteland"] = 0,
+    ["Incarnadine Band of Mending"] = 0,
+    ["Valanar's Other Signet Ring"] = 100,
+    ["Keleseth's Seducer"] = 0,
+    ["Shadow Silk Spindle"] = 300,
+    ["Cryptmaker"] = 100,
+    ["Blood Queen's Crimson Choker"] = 300,
+    ["Lana'thel's Chain of Flagellation"] = 100,
+    ["Bauble of True Blood"] = 0,
+    ["Bloodfall"] = 100,
+    ["Dying Light"] = 0,
+    ["Icecrown Glacial Wall"] = 200,
+    ["Snowstorm Helm"] = 0,
+    ["Noose of Malachite"] = 100,
+    ["Robe of the Waking Nightmare"] = 200,
+    ["Bracers of Eternal Dreaming"] = 0,
+    ["Anub'ar Stalker's Gloves"] = 0,
+    ["Coldwraith Links"] = 200,
+    ["Leggings of Dying Candles"] = 0,
+    ["Scourge Reaver's Legplates"] = 100,
+    ["Boots of the Funeral March"] = 0,
+    ["Devium's Eternally Cold Ring"] = 100,
+    ["Frostbrood Sapphire Ring"] = 300,
+    ["Lungbreaker"] = 0,
+    ["Nightmare Ender"] = 100,
+    ["Frostbinder's Shredded Cape"] = 200,
+    ["Sindragosa's Cruel Claw"] = 200,
+    ["Memory of Malygos"] = 100,
+    ["Phylactery of the Nameless Lich"] = 400,
+    ["Sindragosa's Flawless Fang"] = 200,
+    ["Bloodsurge, Kel'Thuzad's Blade of Agony"] = 300,
+    ["Royal Scepter of Terenas II"] = 300,
+    ["Havoc's Call, Blade of Lordaeron Kings"] = 300,
+    ["Heaven's Fall, Kryss of a Thousand Lies"] = 0,
+    ["Mithrios, Bronzebeard's Legacy"] = 300,
+    ["Archus, Greatstaff of Antonidas"] = 0,
+    ["Glorenzelg, High-Blade of the Silver Hand"] = 300,
+    ["Oathbinder, Charge of the Ranger-General"] = 300,
+    ["Fal'inrush, Defender of Quel'thalas"] = 300,
+    ["Penumbra Pendant"] = 300,
+    ["Signet of Twilight"] = 300,
+    ["Umbrage Armbands"] = 300,
+    ["Returning Footfalls"] = 300,
+    ["Apocalypse's Advance"] = 300,
+    ["Cloak of Burning Dusk"] = 300,
+    ["Bracers of Fiery Night"] = 300,
+    ["Phaseshifter's Bracers"] = 300,
+    ["Split Shape Belt"] = 200,
+    ["Ring of Phased Regeneration"] = 200,
+    ["Foreshadow Steps"] = 200,
+    ["Treads of Impending Resurrection"] = 200,
+    ["Charred Twilight Scale"] = 400,
+    ["Petrified Twilight Scale"] = 400,
+    ["Glowing Twilight Scale"] = 400,
+    ["Sharpened Twilight Scale"] = 400,
+	["Conqueror's Mark of Sanctification"] = 200,
+	["Protector's Mark of Sanctification"] = 200,
+	["Vanquisher's Mark of Sanctification"] = 200
+}
+
+
 -- SavedVariables:
 KRT_Options      = KRT_Options or {}
 KRT_Raids        = KRT_Raids or {}
@@ -1463,7 +1618,8 @@ do
 			if deformat(t, BIND_TRADE_TIME_REMAINING) ~= nil then
 				return false
 			elseif t == ITEM_SOULBOUND then
-				return true
+				-- DEBUG set to false. Running set to true
+				return false
 			end
 		end
 
@@ -1570,11 +1726,14 @@ do
 			addon:ClearRolls()
 			addon:RecordRolls(true)
 			local itemLink = GetItemLink()
+			local itemName, _, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture = GetItemInfo(itemLink)
+			local gpItem = GPValues[itemName]
+
 			if itemCount > 1 then
 				local suff = addon.options.sortAscending and "Low" or "High"
 				addon:Announce(L[chatMsg.."Multiple"..suff]:format(itemLink, itemCount))
 			else
-				addon:Announce(L[chatMsg]:format(itemLink))
+				addon:Announce(L[chatMsg]:format(itemLink,gpItem or 0))
 			end
 			_G[frameName.."ItemCount"]:ClearFocus()
 
@@ -1612,6 +1771,15 @@ do
 			countdownStart = GetTime()
 			countdownPos   = addon.options.countdownDuration + 1
 		end
+
+		local a = addon:GetRolls()
+		-- Store names in a string space seperated
+		local names = "!epgp.compare "
+		for i = 1, #a do
+			names = names .. a[i].name .. " "
+		end
+		-- Print the names
+		print(names)
 	end
 
 	-- Button: Clear Rolls
@@ -2104,6 +2272,25 @@ do
 		local keep = true
 		if rollType <= 3 and addon.options.announceOnWin then
 			output = L.ChatAward:format(playerName, itemLink)
+-- Print Winner with EPGP Value
+			local epgpString = "!epgp.award.loot "
+			-- itemLink to string for search
+			local itemString = tostring(itemLink)
+			-- remove [ and ] from string
+			itemString = itemString:gsub("%[", "")
+			itemString = itemString:gsub("%]", "")
+			local itemName, _, itemRarity, itemLevel, itemMinLevel, itemType, itemSubType, itemStackCount, itemEquipLoc, itemTexture = GetItemInfo(itemLink)
+			local gpItem = GPValues[itemName]
+
+			local a = addon:GetRolls()
+			-- if number of rolls < 2 then gpvalue is divided by 2
+			if #a < 2 then
+				gpItem = gpItem / 2
+				print("Dividing by 2 as only 2 rolls")
+			end
+
+			epgpString = epgpString .. gpItem .. " " .. itemLink .. " " .. playerName
+			print(epgpString)
 			keep = false
 		elseif rollType == rollTypes.hold and addon.options.announceOnHold then
 			output = L.ChatNoneRolledHold:format(itemLink, playerName)
